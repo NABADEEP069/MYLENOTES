@@ -3,12 +3,15 @@ import { RiCloseFill } from "react-icons/ri";
 import { FcGoogle } from "react-icons/fc";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { FaFacebook } from "react-icons/fa";
-import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import {
+  GoogleAuthProvider,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+} from "firebase/auth";
 import { useState } from "react";
-import { auth } from "../../../firebase.config"
+import { auth } from "../../../firebase.config";
 import { FirebaseError } from "firebase/app";
 import { useRouter } from "next/navigation";
-
 
 interface LoginProps {
   show: boolean;
@@ -17,7 +20,12 @@ interface LoginProps {
   switchToForgotPassword: () => void; // Define the prop for switching to forgot password
 }
 
-const Login: React.FC<LoginProps> = ({ show, onClose, switchToSignUp, switchToForgotPassword }) => {
+const Login: React.FC<LoginProps> = ({
+  show,
+  onClose,
+  switchToSignUp,
+  switchToForgotPassword,
+}) => {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -60,24 +68,31 @@ const Login: React.FC<LoginProps> = ({ show, onClose, switchToSignUp, switchToFo
       <div className="relative w-4/12 h-auto p-7 rounded-lg bg-text flex items-center justify-center">
         <div className="flex justify-center items-center  w-full">
           <div className="flex flex-col">
-            <h1 className="text-secondary font-semibold text-2xl mb-3">Login</h1>
+            <h1 className="text-secondary font-semibold text-2xl mb-3">
+              Login
+            </h1>
             <div className="flex flex-col justify-center items-center gap-2">
               <form onSubmit={handleLogin} className="flex flex-col">
                 <div className="flex flex-col">
-                  <label htmlFor="email" className="text-secondary text-sm mb-1">
+                  <label
+                    htmlFor="email"
+                    className="text-secondary text-sm mb-1"
+                  >
                     Email address
                   </label>
                   <input
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-
                     className="text-gray-500 text-xs mb-2 px-5 p-2 rounded-md border w-64"
                     required
                   />
                 </div>
                 <div className="flex flex-col">
-                  <label htmlFor="password" className="text-secondary text-sm mb-1">
+                  <label
+                    htmlFor="password"
+                    className="text-secondary text-sm mb-1"
+                  >
                     Password
                   </label>
                   <input
@@ -88,7 +103,12 @@ const Login: React.FC<LoginProps> = ({ show, onClose, switchToSignUp, switchToFo
                     required
                   />
                   <div className="flex justify-end">
-                    <a onClick={switchToForgotPassword} className="text-accent text-xs right-1 hover:cursor-pointer mb-1">forgot password</a>
+                    <a
+                      onClick={switchToForgotPassword}
+                      className="text-accent text-xs right-1 hover:cursor-pointer mb-1"
+                    >
+                      forgot password
+                    </a>
                   </div>
                 </div>
 
@@ -107,11 +127,27 @@ const Login: React.FC<LoginProps> = ({ show, onClose, switchToSignUp, switchToFo
                 <hr className="border border-secondary border-t-0 w-1/4 ml-1" />
               </div>
 
-              <button onClick={handleGoogleLogin} className="flex items-center justify-center gap-1 border border-background w-full p-1 rounded-md text-secondary bg-white">
-                Sign in with Goodle<FcGoogle onClick={handleGoogleLogin} size={20} className="hover:cursor-pointer" />
+              <button
+                onClick={handleGoogleLogin}
+                className="flex items-center justify-center gap-1 border border-background w-full p-1 rounded-md text-secondary bg-white"
+              >
+                Sign in with Goodle
+                <FcGoogle
+                  onClick={handleGoogleLogin}
+                  size={20}
+                  className="hover:cursor-pointer"
+                />
               </button>
 
-              <p className="text-xs text-secondary">Don't have an account? <a onClick={switchToSignUp} className="text-accent underline cursor-pointer">Sign Up</a></p>
+              <p className="text-xs text-secondary">
+                Don&apos;t have an account?{" "}
+                <a
+                  onClick={switchToSignUp}
+                  className="text-accent underline cursor-pointer"
+                >
+                  Sign Up
+                </a>
+              </p>
             </div>
           </div>
           <div className="absolute top-1 right-2 hover:bg-gray-300 rounded-full">

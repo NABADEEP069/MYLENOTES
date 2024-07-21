@@ -1,8 +1,15 @@
+"use client";
+import HomeHero from "@/components/home/hero";
+import Navbar from "@/components/navbar";
+import Image from "next/image";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <main className="bg-background flex min-h-screen flex-col items-center justify-between p-24">
-        <h1 className="text-text">MyleNotes</h1>
+    <main className="bg-background flex min-h-screen flex-col items-center justify-between">
+      <HomeHero />
+      <div className="h-96"></div>
     </main>
   );
 }
