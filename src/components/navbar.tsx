@@ -92,7 +92,7 @@ export default function Navbar() {
             ${isTop ? "bg-transparent" : "bg-background shadow-md"}
         `}
     >
-      <div className="flex justify-between items-center w-8/12">
+      <div className="flex justify-between items-center w-7/12">
         <Image
           src={"/logo.png"}
           alt="logo"
@@ -153,7 +153,7 @@ export default function Navbar() {
         {!isLoggedIn && !showLogin && (
           <button
             onClick={() => setShowLogin(true)}
-            className="bg-background text-text px-4 py-1 border border-text rounded-md text-sm hover:bg-text hover:text-background"
+            className="bg-transparent text-text px-4 py-1 border border-text rounded-md text-sm hover:bg-text hover:text-background"
           >
             Login
           </button>
@@ -161,7 +161,7 @@ export default function Navbar() {
         {!isLoggedIn && !showSigUp && (
           <button
             onClick={() => setShowSignUp(true)}
-            className="bg-background text-text px-4 py-1 border border-text rounded-md text-sm hover:bg-text hover:text-background"
+            className="bg-transparent text-text px-4 py-1 border border-text rounded-md text-sm hover:bg-text hover:text-background"
           >
             Signup
           </button>
