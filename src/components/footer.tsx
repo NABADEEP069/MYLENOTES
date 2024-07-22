@@ -1,9 +1,15 @@
 import Image from "next/image";
+import { MdPhoneEnabled } from "react-icons/md";
+import { FiMail } from "react-icons/fi";
+import { SiFacebook } from "react-icons/si";
+import { FaSquareXTwitter } from "react-icons/fa6";
+import { FaLinkedin } from "react-icons/fa";
+
 
 export default function Footer() {
     const contactInfo = [
-        { text: "+91 7859645126" },
-        { text: "info@gmail.com" }
+        { icon: <MdPhoneEnabled  size={13}/>, text: "+91 7859645126" },
+        { icon: <FiMail size={13}/>, text: "info@gmail.com" }
     ];
 
     const quickLinks = [
@@ -14,9 +20,9 @@ export default function Footer() {
     ];
 
     const socialMedia = [
-        { text: "Linkedin", href: "#" },
-        { text: "Twitter", href: "#" },
-        { text: "Facebook", href: "#" }
+        { icon: <FaLinkedin size={13}/>, text: "Linkedin", href: "#" },
+        { icon: <FaSquareXTwitter size={13}/>, text: "Twitter", href: "#" },
+        { icon: <SiFacebook size={13}/>, text: "Facebook", href: "#" }
     ];
 
     return (
@@ -39,7 +45,10 @@ export default function Footer() {
                     <ul className="text-text text-xs">
                         <li className="font-bold text-lg text-accent">Contact Us</li>
                         {contactInfo.map((item, index) => (
-                            <li key={index} className="hover:text-primary">{item.text}</li>
+                            <li key={index} className="hover:text-primary flex gap-1 items-center">
+                                {item.icon}
+                                <span>{item.text}</span>
+                            </li>
                         ))}
                     </ul>
                 </div>
@@ -55,7 +64,10 @@ export default function Footer() {
                     <ul className="text-text text-xs">
                         <li className="font-bold text-lg text-accent">Social Media</li>
                         {socialMedia.map((link, index) => (
-                            <li key={index} className="hover:text-primary"><a href={link.href}>{link.text}</a></li>
+                            <li key={index} className="hover:text-primary flex gap-1 items-center">
+                                {link.icon}
+                                <a href={link.href}>{link.text}</a>
+                            </li>
                         ))}
                     </ul>
                 </div>
