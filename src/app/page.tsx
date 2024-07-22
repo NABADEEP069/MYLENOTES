@@ -4,7 +4,7 @@ import Navbar from "@/components/navbar";
 import Image from "next/image";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import Features from "@/components/features";
+import Features from "@/components/home/features";
 
 export default function HomePage() {
   return (

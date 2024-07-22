@@ -92,34 +92,30 @@ export default function Navbar() {
             ${isTop ? "bg-transparent" : "bg-background shadow-md"}
         `}
     >
-      <div className="flex justify-between items-center w-7/12">
-        <Image
-          src={"/logo.png"}
-          alt="logo"
-          height={70}
-          width={165}
-          className="p-1"
-        />
-        <ul className="flex gap-5">
-          {links.map((link, index) => (
-            <li key={index} className="inline-block uppercase font-semibold">
-              <Link
-                href={link.path}
-                className={`text-text hover:text-primary duration-500 text-sm ${
-                  pathname === link.path
-                    ? "text-primary border-b-2 border-primary"
-                    : ""
+      <Image
+        src={"/logo.png"}
+        alt="logo"
+        height={70}
+        width={165}
+        className="p-1"
+      />
+      <ul className="flex gap-5">
+        {links.map((link, index) => (
+          <li key={index} className="inline-block uppercase font-semibold">
+            <Link
+              href={link.path}
+              className={`text-text hover:text-primary duration-500 text-sm ${pathname === link.path
+                  ? "text-primary border-b-2 border-primary"
+                  : ""
                 }`}
-              >
-                {link.name}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
+            >
+              {link.name}
+            </Link>
+          </li>
+        ))}
+      </ul>
 
-      <div className="flex justify-end items-center gap-2 w-4/12">
-        <SearchForm />
+      <div className="flex justify-end items-center gap-2">
         {isLoggedIn && (
           <div
             onMouseEnter={() => setHover(true)}
@@ -181,7 +177,6 @@ export default function Navbar() {
       <ForgotPassword
         show={showForgotPassword}
         onClose={() => setShowForgotPassword(false)}
-        // switchToLogin={openLogin}
       />
     </nav>
   );
