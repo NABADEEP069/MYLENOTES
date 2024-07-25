@@ -16,7 +16,8 @@ export default function Footer() {
         { text: "Home", href: "#" },
         { text: "Notes", href: "#" },
         { text: "Features", href: "#" },
-        { text: "About us", href: "#" }
+        { text: "About us", href: "#" },
+        { text: "Upload Notes", href: "#"}
     ];
 
     const socialMedia = [

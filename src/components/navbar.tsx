@@ -95,8 +95,8 @@ export default function Navbar() {
       <Image
         src={"/logo.png"}
         alt="logo"
-        height={70}
-        width={165}
+        height={80}
+        width={175}
         className="p-1"
       />
       <ul className="flex gap-5">
@@ -104,7 +104,7 @@ export default function Navbar() {
           <li key={index} className="inline-block uppercase font-semibold">
             <Link
               href={link.path}
-              className={`text-text hover:text-primary duration-500 text-sm ${pathname === link.path
+              className={`text-text hover:text-primary duration-500 text-md ${pathname === link.path
                   ? "text-primary border-b-2 border-primary"
                   : ""
                 }`}
@@ -149,7 +149,7 @@ export default function Navbar() {
         {!isLoggedIn && !showLogin && (
           <button
             onClick={() => setShowLogin(true)}
-            className="bg-transparent text-text px-4 py-1 border border-text rounded-md text-sm hover:bg-text hover:text-background"
+            className="bg-transparent text-text px-4 py-1 border border-text rounded-md text-md hover:bg-text hover:text-background"
           >
             Login
           </button>
@@ -157,7 +157,7 @@ export default function Navbar() {
         {!isLoggedIn && !showSigUp && (
           <button
             onClick={() => setShowSignUp(true)}
-            className="bg-transparent text-text px-4 py-1 border border-text rounded-md text-sm hover:bg-text hover:text-background"
+            className="bg-transparent text-text px-4 py-1 border border-text rounded-md text-md hover:bg-text hover:text-background"
           >
             Signup
           </button>
