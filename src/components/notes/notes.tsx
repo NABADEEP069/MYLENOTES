@@ -47,7 +47,7 @@ const popularNotes = [
 
 export default function Notes() {
     return (
-        <div className="flex flex-wrap items-start justify-normal gap-6 md2:gap-6 mt-4">
+        <div className="flex flex-wrap items-start justify-normal lg:justify-between gap-6 md2:gap-6 mt-4">
             {popularNotes.map((note, index) => (
                 <div key={index} className="w-80 md:w-72 lg:w-72 h-auto rounded-lg hover:bg-primary hover:bg-opacity-20 relative overflow-hidden flex flex-col justify-between">
                     <div className="h-full">

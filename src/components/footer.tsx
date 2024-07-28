@@ -38,13 +38,13 @@ export default function Footer() {
                         width={165}
                         className="p-1"
                     />
-                    <p className="text-text text-xs">
+                    <p className="text-text text-xs md:text-sm">
                         MyleNotes is your go-to platform for sharing and accessing lecture notes from various colleges and universities. Easily find and upload high-quality notes to enhance your study resources and succeed academically.
                     </p>
                 </div>
                 <div className="w-full md:w-3/12 lg:w-3/12 p-3">
-                    <ul className="text-text text-xs">
-                        <li className="font-bold text-lg text-accent">Contact Us</li>
+                    <ul className="text-text text-xs md:text-sm">
+                        <li className="font-bold text-lg md:text-xl text-accent">Contact Us</li>
                         {contactInfo.map((item, index) => (
                             <li key={index} className="hover:text-primary flex gap-1 items-center">
                                 {item.icon}
@@ -54,16 +54,16 @@ export default function Footer() {
                     </ul>
                 </div>
                 <div className="w-full md:w-3/12 lg:w-3/12 p-3">
-                    <ul className="text-text text-xs">
-                        <li className="font-bold text-lg text-accent">Quick Links</li>
+                    <ul className="text-text text-xs md:text-sm">
+                        <li className="font-bold text-lg md:text-xl text-accent">Quick Links</li>
                         {quickLinks.map((link, index) => (
                             <li key={index} className="hover:text-primary"><a href={link.href}>{link.text}</a></li>
                         ))}
                     </ul>
                 </div>
                 <div className="w-full md:w-3/12 lg:w-3/12 p-3">
-                    <ul className="text-text text-xs">
-                        <li className="font-bold text-lg text-accent">Social Media</li>
+                    <ul className="text-text text-xs md:text-sm">
+                        <li className="font-bold text-lg md:text-xl text-accent">Social Media</li>
                         {socialMedia.map((link, index) => (
                             <li key={index} className="hover:text-primary flex gap-1 items-center">
                                 {link.icon}
@@ -73,7 +73,7 @@ export default function Footer() {
                     </ul>
                 </div>
             </div>
-            <p className="text-text text-xs p-5">Copyright &copy; 2024 MyleNotes. All Rights Reserved</p>
+            <p className="text-text text-xs md:text-sm p-5">Copyright &copy; 2024 MyleNotes. All Rights Reserved</p>
         </footer>
     );
 }
