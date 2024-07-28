@@ -11,11 +11,9 @@ export default function HomePage() {
       <HomeHero />
 
       <Features />
-      <div className="h-auto p-2 md:p-4 lg:p-5 px-10 md2:px-12 lg:px-16 ml-3 py-12 flex flex-col">
+      <div className="h-auto p-2 md:p-4 lg:p-5 px-10 md2:px-16 ml-3 py-12 flex flex-col">
         <h3 className="font-bold text-xl text-text mb-3">Popular Notes</h3>
         <Notes />
-        
-        <div className="h-96"></div>
       </div>
       <HowItWorks />
 

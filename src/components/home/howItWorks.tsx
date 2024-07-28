@@ -1,48 +1,44 @@
 const points = [
     {
-        title: "Create an account",
-        description: "Sign up for a free account and start creating your own quizzes.",
+        title: "Upload and Share Notes",
+        description1: "Share your notes with the community",
+        description2: "Help others and get help in return",
     },
     {
-        title: "Add Questions",
-        description: "Add multiple choice questions to your quiz.",
+        title: "Search and Discover",
+        description1: "Get instant access to the notes you need",
+        description2: "Use our search bar to find specific notes",
     },
     {
-        title: "Share your quiz",
-        description: "Share your quiz with your friends and see who scores the highest.",
+        title: "Access and Learn",
+        description1: "Find notes from various subjects and topics",
+        description2: "Learn from a vast library of user-uploaded content",
     },
+    {
+        title: "Connect with Others",
+        description1: "Join a community of students and learners",
+        description2: "Collaborate and discuss topics with others",
+    }
 ];
 
 export default function HowItWorks() {
     return (
-        <div className="w-11/12 h-auto p-3 rounded-lg mt-10 flex flex-col justify-center items-center">
+        <div className="w-10/12 p-3 rounded-lg mt-10 flex flex-col items-center">
+            <h2 className="w-full text-center md:text-3xl sm:text-2xl text-2xl text-text font-semibold mb-8">Explore our vast library of user-uploaded content</h2>
+            <div className="bg-secondary bg-opacity-40 p-5 md:p-10 lg:p-20 rounded-lg flex flex-wrap items-start justify-around sm:gap-5 md:gap-10 lg:gap-14">
+                {points.map((point, index) => (
+                    <div key={index} className="md:w-96 w-64 flex flex-col items-start mb-6">
+                        <div className="flex gap-2 items-center justify-center mb-2">
+                            <div className="p-1 bg-accent rounded-md text-text w-7 md:w-10 h-7 md:h-10 flex items-center justify-center">{index + 1}</div>
+                            <h3 className="text-accent font-semibold md:text-2xl text-xl">{point.title}</h3>
+                        </div>
+                        <ul className="list-disc pl-10">
 
-            <div className="w-full flex items-center justify-around">
-                <div className="w-2/6flex flex-col items-center justify-center">
-                    <h2 className="text-2xl text-text font-semibold">Explore our vast library of user-uploaded content</h2>
-                </div>
-                <div className="flex flex-wrap items-center justify-evenly gap-8">
-                    <div className="w-2/6">
-                        <h3 className="text-accent font-semibold text-2xl mb-4">Upload and Share Notes</h3>
-                        <li className="text-text text-md">Share your notes with the community</li>
-                        <li className="text-text text-md">Help others and get help in return</li>
+                            <li className="text-text md:text-md text-sm mb-2">{point.description1}.</li>
+                            <li className="text-text md:text-md text-sm">{point.description2}.</li>
+                        </ul>
                     </div>
-                    <div className="w-2/6">
-                        <h3 className="text-accent font-semibold text-2xl mb-4">Search and Discover</h3>
-                        <li className="text-text text-md">Get instant access to the notes you need</li>
-                        <li className="text-text text-md">Use our search bar to find specific notes</li>
-                    </div>
-                    <div className="w-2/6">
-                        <h3 className="text-accent font-semibold text-2xl mb-4">Access and Learn</h3>
-                        <li className="text-text text-md">Find notes from various subjects and topics</li>
-                        <li className="text-text text-md">Learn from a vast library of user-uploaded content</li>
-                    </div>
-                    <div className="w-2/6">
-                        <h3 className="text-accent font-semibold text-2xl mb-4">Connect with Others</h3>
-                        <li className="text-text text-md">Join a community of students and learners</li>
-                        <li className="text-text text-md">Collaborate and discuss topics with others</li>
-                    </div>
-                </div>
+                ))}
             </div>
         </div>
     )
