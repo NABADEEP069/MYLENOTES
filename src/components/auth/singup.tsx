@@ -63,42 +63,44 @@ const Signup: React.FC<SignupProps> = ({ show, onClose, switchToLogin  }) => {
   if (!show) return null;
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 ">
-      <div className="relative w-4/12 h-auto py-7 rounded-lg bg-text flex items-center justify-cente">
-        <div className="flex justify-center items-center w-full">
-          <div className="flex flex-col">
-            <h1 className="text-secondary font-semibold text-2xl mb-3">Sign Up</h1>
+    <div className="fixed inset-0 flex items-center justify-center bg-background bg-opacity-50 z-50 ">
+      <div className="relative sm:w-3/4 md:w-7/12 lg:w-4/12 h-auto py-6 md:py-8 lg:py-10 rounded-lg bg-background border border-text flex items-center justify-center">
+        <div className="flex justify-center items-center  w-full">
+          <div className="flex flex-col w-full px-9 md:px-12 lg:px-16">
+            <h1 className="text-text font-semibold text-2xl md:tex-3xl mb-3">
+              Sign Up
+            </h1>
             {/* {error && <p className="text-red-500">{error}</p>} */}
             <div className="flex flex-col justify-center items-center gap-2">
-              <form className="flex flex-col" onSubmit={handleSignup}>
+              <form className="flex flex-col w-full" onSubmit={handleSignup}>
                 <div className="flex flex-col">
-                  <label htmlFor="email" className="text-secondary text-sm mb-1">
+                  <label htmlFor="email" className="text-text text-md mb-1">
                     Email address
                   </label>
                   <input
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="text-gray-500 text-xs mb-2 px-5 p-2 rounded-md border w-64"
+                    className="text-gray-500 text-sm mb-2 px-5 p-2 rounded-md border"
                     required
                   />
                 </div>
                 <div className="flex flex-col">
-                  <label htmlFor="password" className="text-secondary text-sm mb-1">
+                  <label htmlFor="password" className="text-text text-md mb-1">
                     Password
                   </label>
                   <input
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="text-gray-500 text-xs mb-2 px-5 p-2 rounded-md border w-64"
+                    className="text-gray-500 text-sm mb-2 px-5 p-2 rounded-md border"
                     required
                   />
                 </div>
                 
                 <div className="flex justify-center">
                   <button
-                    className="bg-secondary hover:bg-primary mt-3 p-1 px-6 rounded-md text-white w-full"
+                    className="bg-secondary text-lg hover:bg-primary mt-3 p-2 px-6 rounded-md text-white w-full"
                     type="submit"
                   >
                     Sign Up
@@ -106,15 +108,15 @@ const Signup: React.FC<SignupProps> = ({ show, onClose, switchToLogin  }) => {
                 </div>
               </form>
               <div className="flex justify-center items-center w-full">
-                <hr className="border border-secondary border-t-0 w-1/4 mr-1" />
-                <p className="text-xs text-secondary">Or continue with</p>
-                <hr className="border border-secondary border-t-0 w-1/4 ml-1" />
+                <hr className="border border-text border-t-0 w-1/4 mr-1" />
+                <p className="text-xs md:text-sm text-text">Or continue with</p>
+                <hr className="border border-text border-t-0 w-1/4 ml-1" />
               </div>
 
-              <button onClick={handleGoogleLogin} className="flex items-center justify-center gap-1 border border-background w-full p-1 rounded-md text-secondary bg-white">
-                Sign in with Goodle<FcGoogle onClick={handleGoogleLogin} size={20} className="hover:cursor-pointer" />
+              <button onClick={handleGoogleLogin} className="flex items-center justify-center gap-1 border border-background w-full text-lg p-2 rounded-md text-background bg-white">
+                Sign in with Google<FcGoogle onClick={handleGoogleLogin} size={20} className="hover:cursor-pointer" />
               </button>
-              <p className="text-xs text-secondary">Already have an account? <a onClick={switchToLogin} className="text-accent underline hover:cursor-pointer">Login</a></p>
+              <p className="text-sm text-text">Already have an account? <a onClick={switchToLogin} className="text-accent underline hover:cursor-pointer">Login</a></p>
             </div>
           </div>
           <div className="">
@@ -125,8 +127,8 @@ const Signup: React.FC<SignupProps> = ({ show, onClose, switchToLogin  }) => {
               height={400}
             /> */}
           </div>
-          <div className="absolute top-1 right-2 hover:bg-gray-300 rounded-full">
-            <button className="p-1 text-black" onClick={onClose} type="button">
+          <div className="absolute top-1 right-2 rounded-full">
+            <button className="p-1 text-text" onClick={onClose} type="button">
               <RiCloseFill size={24} />
             </button>
           </div>

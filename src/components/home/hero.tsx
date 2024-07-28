@@ -46,15 +46,15 @@ export default function HomeHero() {
         ))}
       </div>
       <div className="absolute flex flex-col items-center justify-center w-full h-full text-text">
-        <div className="bg-gray-500 bg-opacity-60 text-center p-3 rounded-md w-7/12">
-          <h2 className="text-4xl font-semibold mb-1">
+        <div className="bg-gray-500 bg-opacity-60 text-center p-2 md:p-3 lg:p-3 rounded-md w-3/4 md:w-9/12 lg:w-7/12">
+          <h2 className="text-3xl md:text-4xl lg:text-4xl font-semibold mb-1">
             Transform the way you learn
           </h2>
-          <h4 className="text-text text-lg font-normal">
+          <h4 className="text-text lg:text-lg md:text-lg text-sm font-normal">
             Connect with students, share knowledge, and succeed together
           </h4>
         </div>
-        <button className="bg-primary hover:bg-secondary text-text font-semibold p-2 px-11 mt-3 rounded-md">
+        <button className="bg-secondary hover:bg-primary text-text font-semibold p-2 px-11 mt-3 rounded-md">
           Join the Community
         </button>
       </div>

@@ -4,13 +4,12 @@ import { useEffect, useState } from "react";
 import Login from "@/components/auth/login";
 import { auth } from "../../firebase.config";
 import { onAuthStateChanged, signOut } from "firebase/auth";
-import { CiSearch } from "react-icons/ci";
-import { RiSearchLine } from "react-icons/ri";
 import Signup from "@/components/auth/singup";
 import ForgotPassword from "@/components/auth/forgotPassword";
-import SearchForm from "./search";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { VscThreeBars } from "react-icons/vsc";
+import { AiOutlineClose } from "react-icons/ai";;
 
 const links = [
   {
@@ -34,6 +33,7 @@ export default function Navbar() {
   const [isTop, setIsTop] = useState(true);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [hover, setHover] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
   const openLogin = () => {
@@ -49,6 +49,10 @@ export default function Navbar() {
   const openForgotPassword = () => {
     setShowForgotPassword(true);
     setShowLogin(false);
+  };
+
+  const closeMenu = () => {
+    setIsOpen(false);
   };
 
   useEffect(() => {
@@ -87,25 +91,27 @@ export default function Navbar() {
   };
 
   return (
-    <nav
-      className={`h-12 w-full flex items-center justify-between fixed top-0 z-30 px-6
-            ${isTop ? "bg-transparent" : "bg-background shadow-md"}
+    <>
+      <nav
+        className={`hidden md:flex h-12 w-full items-center justify-between fixed top-0 z-30 px-6 sm:px-2
+          ${isTop ? "bg-transparent" : "bg-background shadow-md"}
         `}
-    >
-      <div className="flex justify-between items-center w-8/12">
-        <Image
-          src={"/logo.png"}
-          alt="logo"
-          height={70}
-          width={165}
-          className="p-1"
-        />
+      >
+        <Link href="/">
+            <Image
+              src={"/logo.png"}
+              alt="logo"
+              height={80}
+              width={175}
+              className="p-1"
+            />
+          </Link>
         <ul className="flex gap-5">
           {links.map((link, index) => (
             <li key={index} className="inline-block uppercase font-semibold">
               <Link
                 href={link.path}
-                className={`text-text hover:text-primary duration-500 text-sm ${
+                className={`text-text hover:text-primary duration-500 text-md sm:text-sm ${
                   pathname === link.path
                     ? "text-primary border-b-2 border-primary"
                     : ""
@@ -116,73 +122,127 @@ export default function Navbar() {
             </li>
           ))}
         </ul>
-      </div>
 
-      <div className="flex justify-end items-center gap-2 w-4/12">
-        <SearchForm />
-        {isLoggedIn && (
-          <div
-            onMouseEnter={() => setHover(true)}
-            onMouseLeave={() => setHover(false)}
-            className=""
-          >
+        <div className="flex justify-end items-center gap-2">
+          {isLoggedIn && (
+            <div
+              onMouseEnter={() => setHover(true)}
+              onMouseLeave={() => setHover(false)}
+              className=""
+            >
+              <Image
+                src={"/dp.jpg"}
+                alt="profile pic"
+                width={38}
+                height={38}
+                className="rounded-full hover:cursor-pointer"
+              />
+
+              {hover && (
+                <div className="flex flex-col text-xs text-gray-800 absolute top-12 right-2 rounded-md bg-white p-1 hover:cursor-pointer">
+                  <a className="p-1 px-3 hover:bg-gray-300 rounded-sm ">
+                    Wishlist
+                  </a>
+                  <a
+                    onClick={logout}
+                    className="p-1 px-3 hover:bg-gray-300 rounded-sm "
+                  >
+                    Logout
+                  </a>
+                </div>
+              )}
+            </div>
+          )}
+
+          {!isLoggedIn && !showLogin && (
+            <button
+              onClick={() => setShowLogin(true)}
+              className="bg-transparent text-text px-4 py-1 border border-text rounded-md text-md hover:bg-text hover:text-background"
+            >
+              Login
+            </button>
+          )}
+          {!isLoggedIn && !showSigUp && (
+            <button
+              onClick={() => setShowSignUp(true)}
+              className="bg-transparent text-text px-4 py-1 border border-text rounded-md text-md hover:bg-text hover:text-background"
+            >
+              Signup
+            </button>
+          )}
+        </div>
+        <Login
+          show={showLogin}
+          onClose={() => setShowLogin(false)}
+          switchToSignUp={openSignup}
+          switchToForgotPassword={openForgotPassword}
+        />
+        <Signup
+          show={showSigUp}
+          onClose={() => setShowSignUp(false)}
+          switchToLogin={openLogin}
+        />
+        <ForgotPassword
+          show={showForgotPassword}
+          onClose={() => setShowForgotPassword(false)}
+        />
+      </nav>
+      <div className="sm:hidden">
+        <nav
+          className={`h-12 w-full fixed top-0 z-30 px-4 flex items-center justify-between
+            ${!isTop || isOpen ? "bg-background" : "bg-transparent"}
+          `}
+        >
+          <Link href="/">
             <Image
-              src={"/dp.jpg"}
-              alt="profile pic"
-              width={38}
-              height={38}
-              className="rounded-full hover:cursor-pointer"
+              src={"/logo.png"}
+              alt="logo"
+              height={80}
+              width={175}
+              className="p-1"
             />
-
-            {hover && (
-              <div className="flex flex-col text-xs text-gray-800 absolute top-12 right-2 rounded-md bg-white p-1 hover:cursor-pointer">
-                <a className="p-1 px-3 hover:bg-gray-300 rounded-sm ">
-                  Wishlist
-                </a>
-                <a
-                  onClick={logout}
-                  className="p-1 px-3 hover:bg-gray-300 rounded-sm "
+          </Link>
+          <button onClick={() => setIsOpen(!isOpen)} className="focus:outline-none">
+            {isOpen ? <AiOutlineClose size={30} className='text-text' /> : <VscThreeBars size={30} className='text-text' />}
+          </button>
+          {isOpen && (
+            <div className="flex flex-col gap-1 py-3 absolute top-12 left-0 w-full bg-background text-text text-center">
+              {links.map((link, index) => (
+                <Link
+                  key={index}
+                  href={link.path}
+                  onClick={closeMenu}
+                  className="block py-3 hover:text-primary hover:bg-gray-900"
                 >
-                  Logout
-                </a>
-              </div>
-            )}
-          </div>
-        )}
-
-        {!isLoggedIn && !showLogin && (
-          <button
-            onClick={() => setShowLogin(true)}
-            className="bg-background text-text px-4 py-1 border border-text rounded-md text-sm hover:bg-text hover:text-background"
-          >
-            Login
-          </button>
-        )}
-        {!isLoggedIn && !showSigUp && (
-          <button
-            onClick={() => setShowSignUp(true)}
-            className="bg-background text-text px-4 py-1 border border-text rounded-md text-sm hover:bg-text hover:text-background"
-          >
-            Signup
-          </button>
-        )}
+                  <p>{link.name}</p>
+                </Link>
+              ))}
+              {!isLoggedIn && !showLogin && (
+                <p
+                  onClick={() => {
+                    setShowLogin(true);
+                    closeMenu();
+                  }}
+                  className="block py-3 hover:text-primary hover:bg-gray-900"
+                >
+                  Login
+                </p>
+              )}
+              {!isLoggedIn && !showSigUp && (
+                <p
+                  onClick={() => {
+                    setShowSignUp(true);
+                    closeMenu();
+                  }}
+                  className="block py-3 hover:text-primary hover:bg-gray-900"
+                >
+                  Signup
+                </p>
+              )}
+            </div>
+          )}
+        </nav>
       </div>
-      <Login
-        show={showLogin}
-        onClose={() => setShowLogin(false)}
-        switchToSignUp={openSignup}
-        switchToForgotPassword={openForgotPassword}
-      />
-      <Signup
-        show={showSigUp}
-        onClose={() => setShowSignUp(false)}
-        switchToLogin={openLogin}
-      />
-      <ForgotPassword
-        show={showForgotPassword}
-        onClose={() => setShowForgotPassword(false)}
-        // switchToLogin={openLogin}
-      />
-    </nav>
+    </>
   );
 }
