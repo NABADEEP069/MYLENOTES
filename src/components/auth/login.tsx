@@ -131,7 +131,7 @@ const Login: React.FC<LoginProps> = ({
                 onClick={handleGoogleLogin}
                 className="flex items-center justify-center gap-1 border border-background w-full p-2 text-lg rounded-md text-background bg-white"
               >
-                Sign in with Goodle
+                Sign in with Google
                 <FcGoogle
                   onClick={handleGoogleLogin}
                   size={20}
