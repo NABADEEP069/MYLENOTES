@@ -6,7 +6,7 @@ export default function UploadNotes() {
   const [showPopup, setShowPopup] = useState(false);
 
     return (
-      <div className="w-80 h-96 rounded-lg bg-primary bg-opacity-50 flex flex-col gap-2 justify-center items-center text-text text-xl hover:bg-opacity-40 transition duration-300">
+      <div className="w-full md:w-64 lg:w-72 h-80 rounded-lg bg-primary bg-opacity-50 flex flex-col gap-2 justify-center items-center text-text text-xl hover:bg-opacity-40 transition duration-300">
       {!showPopup ? (
         <>
           <div

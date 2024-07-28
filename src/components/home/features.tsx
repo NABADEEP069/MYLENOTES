@@ -32,13 +32,13 @@ const features = [
 
 export default function Features() {
   return (
-    <div className="w-10/12 h-auto p-3 rounded-lg mt-10 flex flex-col justify-center items-center">
-      <h3 className="text-accent font-semibold text-3xl mb-4">The Ultimate Study Buddy</h3>
-      <div className="flex gap-8 mt-3 justify-between items-center">
+    <div className="w-11/12 h-auto p-4 rounded-lg mt-10 flex flex-col justify-center items-center">
+      <h3 className="text-accent font-semibold text-2xl sm:text-2xl md:text-3xl mb-6">The Ultimate Study Buddy</h3>
+      <div className="flex flex-wrap gap-6 justify-center items-center">
         {features.map((feature, index) => (
-          <div key={index} className="border rounded-lg p-5 w-2/6 h-64 flex flex-col items-center justify-center text-text text-center">
+          <div key={index} className="border rounded-lg p-5 w-full sm:w-2/5 md:w-1/4 h-64 flex flex-col items-center justify-center text-text text-center">
             <Image src={images[index].src} alt={images[index].alt} width={75} height={75} className="rounded-full" />
-            <h5 className=" text-accent text-xl mt-2">{feature.title}</h5>
+            <h5 className="text-accent text-lg sm:text-xl mt-2">{feature.title}</h5>
             <p className="text-text font-normal text-sm mt-1">{feature.description}</p>
           </div>
         ))}

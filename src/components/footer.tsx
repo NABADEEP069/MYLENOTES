@@ -29,8 +29,8 @@ export default function Footer() {
     return (
         <footer className="flex flex-col w-full h-auto p-5 bg-background justify-center items-center">
             <hr className="border text-text w-full" />
-            <div className="flex gap-6 justify-between items-start w-full px-5 py-6">
-                <div className="w-4/12 p-3">
+            <div className="flex flex-col md:flex-row lg:flex-row gap-6 justify-between items-start w-full sm:px-1 md:px-3 lg:px-5 py-6">
+                <div className="w-full md:w-4/12 lg:w-4/12 p-3">
                     <Image
                         src={"/logo.png"}
                         alt="logo"
@@ -42,7 +42,7 @@ export default function Footer() {
                         MyleNotes is your go-to platform for sharing and accessing lecture notes from various colleges and universities. Easily find and upload high-quality notes to enhance your study resources and succeed academically.
                     </p>
                 </div>
-                <div className="w-3/12 p-3">
+                <div className="w-full md:w-3/12 lg:w-3/12 p-3">
                     <ul className="text-text text-xs">
                         <li className="font-bold text-lg text-accent">Contact Us</li>
                         {contactInfo.map((item, index) => (
@@ -53,7 +53,7 @@ export default function Footer() {
                         ))}
                     </ul>
                 </div>
-                <div className="w-3/12 p-3">
+                <div className="w-full md:w-3/12 lg:w-3/12 p-3">
                     <ul className="text-text text-xs">
                         <li className="font-bold text-lg text-accent">Quick Links</li>
                         {quickLinks.map((link, index) => (
@@ -61,7 +61,7 @@ export default function Footer() {
                         ))}
                     </ul>
                 </div>
-                <div className="w-3/12 p-3">
+                <div className="w-full md:w-3/12 lg:w-3/12 p-3">
                     <ul className="text-text text-xs">
                         <li className="font-bold text-lg text-accent">Social Media</li>
                         {socialMedia.map((link, index) => (
