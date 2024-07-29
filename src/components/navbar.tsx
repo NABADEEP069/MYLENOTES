@@ -9,7 +9,7 @@ import ForgotPassword from "@/components/auth/forgotPassword";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { VscThreeBars } from "react-icons/vsc";
-import { AiOutlineClose } from "react-icons/ai";;
+import { AiOutlineClose } from "react-icons/ai";
 
 const links = [
   {
@@ -98,14 +98,14 @@ export default function Navbar() {
         `}
       >
         <Link href="/">
-            <Image
-              src={"/logo.png"}
-              alt="logo"
-              height={80}
-              width={175}
-              className="p-1"
-            />
-          </Link>
+          <Image
+            src={"/logo.png"}
+            alt="logo"
+            height={80}
+            width={175}
+            className="p-1"
+          />
+        </Link>
         <ul className="flex gap-5">
           {links.map((link, index) => (
             <li key={index} className="inline-block uppercase font-semibold">
@@ -242,6 +242,21 @@ export default function Navbar() {
             </div>
           )}
         </nav>
+        <Login
+          show={showLogin}
+          onClose={() => setShowLogin(false)}
+          switchToSignUp={openSignup}
+          switchToForgotPassword={openForgotPassword}
+        />
+        <Signup
+          show={showSigUp}
+          onClose={() => setShowSignUp(false)}
+          switchToLogin={openLogin}
+        />
+        <ForgotPassword
+          show={showForgotPassword}
+          onClose={() => setShowForgotPassword(false)}
+        />
       </div>
     </>
   );
