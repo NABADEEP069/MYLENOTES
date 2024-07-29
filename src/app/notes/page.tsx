@@ -39,7 +39,7 @@ export default function Home() {
           </div>
           <div className="flex flex-col md:flex-row lg:flex-row items-center justify-center w-96 gap-2 mt-3">
             <input type="search" className="p-2 px-4 rounded-lg text-gray-800" placeholder={searchPlaceholder} />
-            <button className="bg-secondary hover:bg-primary text-text font-semibold p-2 px-11 rounded-md">
+            <button className="bg-primary hover:bg-secondary text-text font-semibold p-2 px-11 rounded-md">
               Search
             </button>
           </div>
