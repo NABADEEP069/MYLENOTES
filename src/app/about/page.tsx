@@ -22,8 +22,8 @@ const team = [
         image: "/team/deba.jpg",
         name: "Debanand Singha",
         role: "Backend Developer",
-        github: "Debanand-Singha",
-        linkedin: "DebanandSingha"
+        github: "https://github.com/debanandsingha",
+        linkedin: "www.linkedin.com/in/debanand"
     },
     {
         image: "/team/mona.jpeg",
