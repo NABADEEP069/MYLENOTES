@@ -23,14 +23,14 @@ const team = [
         name: "Debanand Singha",
         role: "Backend Developer",
         github: "https://github.com/debanandsingha",
-        linkedin: "www.linkedin.com/in/debanand"
+        linkedin: "https://www.linkedin.com/in/debanand"
     },
     {
         image: "/team/mona.jpeg",
         name: "Monalisha Roy",
         role: "Frontend Developer, UI/UX Designer",
         github: "https://github.com/Monalisha-Roy",
-        linkedin: "www.linkedin.com/in/monalisha-roy-995978252"
+        linkedin: "https://www.linkedin.com/in/monalisha-roy-995978252"
     },
     {
         image: "/team/nabadeep.jpg",
