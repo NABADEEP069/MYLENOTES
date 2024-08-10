@@ -34,7 +34,7 @@ const team = [
     },
     {
         image: "/team/nabadeep.jpg",
-        name: "Nabadeep Das",
+        name: "Nabadeep Kr.  Das",
         role: "Backend Developer",
         github: "https://github.com/NABADEEP069",
         linkedin: "https://www.linkedin.com/in/nabadeep-kr-das"
