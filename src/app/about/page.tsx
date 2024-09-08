@@ -8,7 +8,7 @@ const values = [
         description: "We believe that together, we can achieve more.",
     },
     {
-        title: "Knowledge sharing",
+        title: "Knowledge is sharing",
         description: "We're passionate about making knowledge accessible.",
     },
     {
